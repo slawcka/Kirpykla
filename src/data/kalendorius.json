@@ -1,0 +1,112 @@
+[
+    {
+            "date": "2019-02-04",
+            "laikas":[
+                {
+                    "valandos":"10.00",
+                    "rezervuota":true,
+                    "klientas":"Genijus",
+                    "kirpejas":""  
+                },
+                {
+                    "valandos":"10.15",
+                    "rezervuota":false,
+                    "klientas":"",
+                    "kirpejas":""  
+                },
+                {
+                    "valandos":"10.30",
+                    "rezervuota":false,
+                    "klientas":"",
+                    "kirpejas":""  
+                },
+                {
+                    "valandos":"10.45",
+                    "rezervuota":false,
+                    "klientas":"",
+                    "kirpejas":"" 
+                },
+                {
+                    "valandos":"11.00",
+                    "rezervuota":true,
+                    "klientas":"Hena",
+                    "kirpejas":"Lukas"  
+                }
+
+            ]
+        
+    },
+    {
+        "date": "2019-02-05",
+        "laikas":[
+            {
+                "valandos":"10.00",
+                "rezervuota":true,
+                "klientas":"Jonas",
+                "kirpejas":"Gedas"  
+            },
+            {
+                "valandos":"10.15",
+                "rezervuota":true,
+                "klientas":"Larisa",
+                "kirpejas":"" 
+            },
+            {
+                "valandos":"10.30",
+                "rezervuota":false,
+                "klientas":"",
+                "kirpejas":"Marija" 
+            },
+            {
+                "valandos":"10.45",
+                "rezervuota":true,
+                "klientas":"Povilas",
+                "kirpejas":"Marija" 
+            },
+            {
+                "valandos":"11.00",
+                "rezervuota":false,
+                "klientas":"",
+                "kirpejas":"" 
+            }
+
+        ]
+    
+},{
+    "date": "2019-02-06",
+    "laikas":[
+        {
+            "valandos":"10.00",
+            "rezervuota":true,
+            "klientas":"Birenijus",
+            "kirpejas":"Goda"  
+        },
+        {
+            "valandos":"10.15",
+            "rezervuota":false,
+            "klientas":"",
+            "kirpejas":"" 
+        },
+        {
+            "valandos":"10.30",
+            "rezervuota":true,
+            "klientas":"Zenonas" ,
+            "kirpejas":"" 
+        },
+        {
+            "valandos":"10.45",
+            "rezervuota":true,
+            "klientas":"Povilas",
+            "kirpejas":"Marija" 
+        },
+        {
+            "valandos":"11.00",
+            "rezervuota":false,
+            "klientas":"",
+            "kirpejas":"" 
+        }
+
+    ]
+
+}
+]

@@ -1,25 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Paieska from './components/Paieska';
+import data from './data/kalendorius.json';
 import './App.css';
 
 class App extends Component {
+  state={
+    kalendorius:null,
+    loading:true
+  }
+
+  componentWillMount() {
+    this.setState({kalendorius:data})
+  }
+
+  componentDidMount(){
+    
+
+    this.setState({loading:false})
+    console.log("loaded")
+  }
   render() {
+    if(this.state.loading){
+      return <p>loading</p>
+    }
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <Paieska kalendar={this.state.kalendorius} /> 
+       
+         
       </div>
     );
   }
