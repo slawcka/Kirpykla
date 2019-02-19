@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Laikas from './Laikas'
 class Paieska extends Component {
+    
     state={
         puslapis:0,
         puslapiuKiekis:null
@@ -38,8 +39,12 @@ class Paieska extends Component {
                     
                 </div>
                 <div className="container reservation">
-                {data[puslapis].laikas.map(data=>
-                <Laikas data={data}/>
+                {data[puslapis].laikas.map(item=>
+                <Laikas 
+                data={item} 
+                diena={this.state.puslapis}
+                rezervuotiLaika={this.props.rezervuotiLaika}    
+                />
                 )}
                     
                 </div>

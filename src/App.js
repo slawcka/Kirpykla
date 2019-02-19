@@ -1,33 +1,54 @@
-import React, { Component } from 'react';
-import Paieska from './components/Paieska';
-import data from './data/kalendorius.json';
-import './App.css';
+import React, { Component } from "react";
+import Paieska from "./components/Paieska";
+import data from "./data/kalendorius.json";
+import "./App.css";
+import Diena from "./components/Diena";
 
 class App extends Component {
-  state={
-    kalendorius:null,
-    loading:true
+  constructor(props) {
+    super(props);
+  this.state = {
+    kalendorius: null,
+    loading: true
+  };
+  this.rezervuotiLaika = this.rezervuotiLaika.bind(this);
   }
-
   componentWillMount() {
-    this.setState({kalendorius:data})
+    this.setState({ kalendorius: data });
   }
 
-  componentDidMount(){
+  componentDidMount() {
+    this.setState({ loading: false });
+    console.log("loaded");
+  }
+  rezervuotiLaika(data,laikas){
+    let kalendorius,diena;
     
+    kalendorius=[...this.state.kalendorius];
+    diena=kalendorius[data]
 
-    this.setState({loading:false})
-    console.log("loaded")
+    diena.laikas.find((obj,item)=>{
+      if (obj.valandos===laikas) {
+        kalendorius[data].laikas[item].rezervuota=false
+        kalendorius[data].laikas[item].klientas=""
+        kalendorius[data].laikas[item].kirpejas=""
+      }
+    })
+    this.setState({
+      kalendorius
+    })
+    
   }
   render() {
-    if(this.state.loading){
-      return <p>loading</p>
+    if (this.state.loading) {
+      return <p>loading</p>;
     }
     return (
       <div className="App ">
-      <Paieska kalendar={this.state.kalendorius} /> 
-       
-         
+        <Paieska 
+        kalendar={this.state.kalendorius}
+        rezervuotiLaika={this.rezervuotiLaika}
+         />
       </div>
     );
   }
