@@ -23,27 +23,27 @@
   color: #61dafb;
 }
 
-/* .item {
-  flex-flow:row nowrap
+.color-two{
+  color: lightblue;
 }
-.item p,.item h3 {
-  flex: auto
-}
-.navi {
-  width:100%
-}
-.navi p {
-  display: inline-block
-}
-} */
 .rezervuota {
-  background: rgb(117, 81, 98) !important;
-  color: rgb(228, 181, 181)
+  background: rgb(89, 88, 146) !important;
+  color: white
 }
 .reservation {
   border: 1px solid rgb(185, 196, 207);
 }
-
+.reservation__header {
+  display:flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items:center;
+  margin:50px 0;
+}
+.reservation__data {
+  font-size: 2.5em;
+  margin:0 20px;
+}
 .reservation__item {
   border-bottom: 1px solid rgb(185, 196, 207);
 }
@@ -56,6 +56,36 @@
 .reservation__unit {
   border-right: 1px solid rgb(185, 196, 207);
 }
+.reservation__unit h3 {
+  font-size:1em;
+}
+.reservation__unit p {
+  font-size:1.5em;
+  font-weight:700;
+}
 .reservation__unit:last-child {
   border-right: 0;
+}
+
+.forma {
+  
+  background:white;
+  border-radius: 10px;
+  padding: 50px 30px;
+}
+.forma form {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+
+}
+
+.forma button {
+  width: 50%;
+  margin-top: 20px;
+}
+.forma h2{
+  
+  font-size:3em;
+  padding-bottom: 20px;
 }
