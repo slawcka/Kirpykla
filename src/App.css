@@ -23,11 +23,18 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.item {
+  flex-flow:row nowrap
+}
+.item p,.item h3 {
+  flex: auto
+}
+.navi {
+  width:100%
+}
+.navi p {
+  display: inline-block
+}
+.rezervuota {
+  background: yellow
 }

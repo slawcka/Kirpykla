@@ -24,7 +24,7 @@ class App extends Component {
       return <p>loading</p>
     }
     return (
-      <div className="App">
+      <div className="App container">
       <Paieska kalendar={this.state.kalendorius} /> 
        
          

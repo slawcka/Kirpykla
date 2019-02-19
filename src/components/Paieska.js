@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Laikas from './Laikas'
 class Paieska extends Component {
     state={
         puslapis:0,
@@ -28,20 +28,21 @@ class Paieska extends Component {
     render() {
         const puslapis=this.state.puslapis
         const data=this.props.kalendar
-		console.log('TCL: Paieska -> render -> data', data)
         const puslapiuKiekis=this.state.puslapiuKiekis-1
         return (
-            <div>
-                <h1>{data[puslapis].date}</h1>
-                <button onClick={()=>this.handleClick("minus")} disabled={puslapis===0} >prev</button>
-                <button onClick={()=>this.handleClick("plus")} disabled={puslapis===puslapiuKiekis}>next</button>
-                {data[puslapis].laikas.map(e=>
-                <div>
-                <h1>{e.klientas}</h1>
-                <p>{e.valandos}</p>
-
+            <div className="columns">
+                <div className="navi">
+                <button className="btn btn-primary" onClick={()=>this.handleClick("minus")} disabled={puslapis===0} >prev</button>
+                <p>{data[puslapis].date}</p>
+                <button className="btn btn-primary  " onClick={()=>this.handleClick("plus")} disabled={puslapis===puslapiuKiekis}>next</button>
+                    
                 </div>
+                <div className="ass">
+                {data[puslapis].laikas.map(data=>
+                <Laikas data={data}/>
                 )}
+                    
+                </div>
             </div>
         );
     }
