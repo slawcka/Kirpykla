@@ -1,3 +1,4 @@
+//v2 atsaukti mygtuka
 import React, { Component } from "react";
 import Paieska from "./components/Paieska";
 import data from "./data/kalendorius.json";
@@ -7,11 +8,12 @@ import Diena from "./components/Diena";
 class App extends Component {
   constructor(props) {
     super(props);
-  this.state = {
-    kalendorius: null,
-    loading: true
-  };
-  this.rezervuotiLaika = this.rezervuotiLaika.bind(this);
+    this.state = {
+      kalendorius: null,
+      loading: true
+    };
+    this.atsauktiRezervacija = this.atsauktiRezervacija.bind(this);
+    this.rezervuotiLaika = this.rezervuotiLaika.bind(this);
   }
   componentWillMount() {
     this.setState({ kalendorius: data });
@@ -21,23 +23,25 @@ class App extends Component {
     this.setState({ loading: false });
     console.log("loaded");
   }
-  rezervuotiLaika(data,laikas){
-    let kalendorius,diena;
-    
-    kalendorius=[...this.state.kalendorius];
-    diena=kalendorius[data]
+  rezervuotiLaika(){
 
-    diena.laikas.find((obj,item)=>{
-      if (obj.valandos===laikas) {
-        kalendorius[data].laikas[item].rezervuota=false
-        kalendorius[data].laikas[item].klientas=""
-        kalendorius[data].laikas[item].kirpejas=""
+  }
+  atsauktiRezervacija(data, laikas) {
+    let kalendorius, diena;
+
+    kalendorius = [...this.state.kalendorius];
+    diena = kalendorius[data];
+
+    diena.laikas.find((obj, item) => {
+      if (obj.valandos === laikas) {
+        kalendorius[data].laikas[item].rezervuota = false;
+        kalendorius[data].laikas[item].klientas = "";
+        kalendorius[data].laikas[item].kirpejas = "";
       }
-    })
+    });
     this.setState({
       kalendorius
-    })
-    
+    });
   }
   render() {
     if (this.state.loading) {
@@ -45,10 +49,11 @@ class App extends Component {
     }
     return (
       <div className="App ">
-        <Paieska 
-        kalendar={this.state.kalendorius}
-        rezervuotiLaika={this.rezervuotiLaika}
-         />
+        <Paieska
+          kalendar={this.state.kalendorius}
+          atsauktiRezervacija={this.atsauktiRezervacija}
+          rezervuotiLaika={this.rezervuotiLaika}
+        />
       </div>
     );
   }

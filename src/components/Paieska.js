@@ -43,7 +43,8 @@ class Paieska extends Component {
                 <Laikas 
                 data={item} 
                 diena={this.state.puslapis}
-                rezervuotiLaika={this.props.rezervuotiLaika}    
+                atsauktiRezervacija={this.props.atsauktiRezervacija}  
+                rezervuotiLaika={this.props.rezervuotiLaika}  
                 />
                 )}
                     

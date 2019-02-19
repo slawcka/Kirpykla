@@ -19,10 +19,10 @@ const Laikas = (props) => {
         </div>
         <div className="column reservation__unit">
           {props.data.rezervuota ? 
-            <button onClick={()=>props.rezervuotiLaika(props.diena,props.data.valandos)}
+            <button onClick={()=>props.atsauktiRezervacija(props.diena,props.data.valandos)}
               className="button is-rounded">atšaukti</button>
            : 
-            <button className="button is-rounded">rezervuoti</button>
+            <button onClick={()=>props.rezervuotiLaika(props.diena,props.data.valandos)} className="button is-rounded">rezervuoti</button>
           }
         </div>
       </div>
