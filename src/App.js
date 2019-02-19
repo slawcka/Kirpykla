@@ -3,7 +3,9 @@ import React, { Component } from "react";
 import Paieska from "./components/Paieska";
 import data from "./data/kalendorius.json";
 import "./App.css";
-import Diena from "./components/Diena";
+//import Diena from "./components/Diena";
+
+
 
 class App extends Component {
   constructor(props) {
@@ -23,8 +25,24 @@ class App extends Component {
     this.setState({ loading: false });
     console.log("loaded");
   }
-  rezervuotiLaika(){
+  rezervuotiLaika(vardas,dabartinis){
+		console.log('TCL: App -> rezervuotiLaika -> vardas', vardas)
+		let kalendorius, diena;
 
+    kalendorius = [...this.state.kalendorius];
+    diena = kalendorius[dabartinis.diena];
+
+    diena.laikas.find((obj, item) => {
+      if (obj.valandos === dabartinis.laikas) {
+        kalendorius[dabartinis.diena].laikas[item].rezervuota = true;
+        kalendorius[dabartinis.diena].laikas[item].klientas = vardas;
+        kalendorius[dabartinis.diena].laikas[item].kirpejas = "zuzi";
+      }
+    });
+    this.setState({
+      kalendorius
+    });
+    
   }
   atsauktiRezervacija(data, laikas) {
     let kalendorius, diena;
