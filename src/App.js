@@ -1,4 +1,4 @@
-//v2 atsaukti mygtuka
+//v2.0 atsaukti mygtukas ++
 import React, { Component } from "react";
 import Paieska from "./components/Paieska";
 import data from "./data/kalendorius.json";
