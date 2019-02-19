@@ -30,14 +30,14 @@ class Paieska extends Component {
         const data=this.props.kalendar
         const puslapiuKiekis=this.state.puslapiuKiekis-1
         return (
-            <div className="columns">
-                <div className="navi">
-                <button className="btn btn-primary" onClick={()=>this.handleClick("minus")} disabled={puslapis===0} >prev</button>
+            <div className="">
+                <div className="reservation__header">
+                <button className="button is-link" onClick={()=>this.handleClick("minus")} disabled={puslapis===0} >prev</button>
                 <p>{data[puslapis].date}</p>
-                <button className="btn btn-primary  " onClick={()=>this.handleClick("plus")} disabled={puslapis===puslapiuKiekis}>next</button>
+                <button className="button is-link" onClick={()=>this.handleClick("plus")} disabled={puslapis===puslapiuKiekis}>next</button>
                     
                 </div>
-                <div className="ass">
+                <div className="container reservation">
                 {data[puslapis].laikas.map(data=>
                 <Laikas data={data}/>
                 )}
