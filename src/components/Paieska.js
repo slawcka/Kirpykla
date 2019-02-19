@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
-
+import Laikas from './Laikas'
 class Paieska extends Component {
+    
     state={
-        puslapis:1,
+        puslapis:0,
         puslapiuKiekis:null
 
     }
     componentWillMount() {
         this.setState({puslapiuKiekis:this.props.kalendar.length})
+        
       }
     handleClick(type){
         let current=this.state.puslapis
-        let puslapiuKiekis=this.state.puslapiuKiekis
+        let puslapiuKiekis=this.state.puslapiuKiekis-1
         type==="minus" ? current-- : type==="plus" && current++
         
-        if(current<1){
-            current=1
+        if(current<0){
+            current=0
         } else if (current>puslapiuKiekis){
             current=puslapiuKiekis
         }
@@ -25,20 +27,28 @@ class Paieska extends Component {
         })
     }
     render() {
-        const puslapis=this.state.puslapis-1
+        const puslapis=this.state.puslapis
         const data=this.props.kalendar
+        const puslapiuKiekis=this.state.puslapiuKiekis-1
         return (
-            <div>
-                <h1>{data[puslapis].date}</h1>
-                <button onClick={()=>this.handleClick("minus")} >prev</button>
-                <button onClick={()=>this.handleClick("plus")}>next</button>
-                {data[puslapis].laikas.map(e=>
-                <div>
-                <h1>{e.klientas}</h1>
-                <p>{e.valandos}</p>
-
+            <div className="">
+                <div className="reservation__header">
+                <button className="button is-link" onClick={()=>this.handleClick("minus")} disabled={puslapis===0} >prev</button>
+                <p>{data[puslapis].date}</p>
+                <button className="button is-link" onClick={()=>this.handleClick("plus")} disabled={puslapis===puslapiuKiekis}>next</button>
+                    
                 </div>
+                <div className="container reservation">
+                {data[puslapis].laikas.map(item=>
+                <Laikas 
+                data={item} 
+                diena={this.state.puslapis}
+                atsauktiRezervacija={this.props.atsauktiRezervacija}  
+                rezervuotiLaika={this.props.rezervuotiLaika}  
+                />
                 )}
+                    
+                </div>
             </div>
         );
     }
