@@ -22,12 +22,14 @@ class App extends Component {
       puslapis: 0,
       error: false,
       redirect: false,
-      registered: false
+      registered: false,
+      procentai:0
     };
     this.atsauktiRezervacija = this.atsauktiRezervacija.bind(this);
     this.rezervuotiLaika = this.rezervuotiLaika.bind(this);
     this.klientasRezervuoti = this.klientasRezervuoti.bind(this);
     this.sekmingaRegistracija = this.sekmingaRegistracija.bind(this);
+    this.procentai = this.procentai.bind(this);
     this.pageCounter = this.pageCounter.bind(this);
     this.onChange = this.onChange.bind(this);
   }
@@ -37,6 +39,7 @@ class App extends Component {
   componentDidMount() {
     const length = this.state.kalendorius.length;
     this.setState({ puslapiuKiekis: length });
+    this.procentai();
   }
 
   onChange(e) {
@@ -118,12 +121,28 @@ class App extends Component {
       puslapis: current
     });
   }
-
+  procentai(){
+    let time=0;
+    let interval=setInterval(e=>{
+      time++
+      this.setState({
+        procentai:time
+      })
+      if(time>99){
+        clearInterval(interval)
+      }
+    },10)
+  }
   render() {
     return (
       <div className="App">
         <Header />
-        <Route exact path="/" component={Pagrindinis} />
+        <Route exact path="/" render={props => (
+            <Pagrindinis
+              {...props}
+              procentai={this.state.procentai}
+            />
+          )} />
         <Route
           exact
           path="/kirpyklai"

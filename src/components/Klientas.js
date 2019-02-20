@@ -57,9 +57,9 @@ const Klientas = props => {
       <div className={"modal " + (props.registered && "is-active")}>
       <div className="modal-background" />
       <div className="modal-content client__modal--success">
-        <h1>Registracija sėkminga!</h1>
+        <h1 className="is-size-2">Registracija sėkminga!</h1>
         <p>gražinama į pradinį puslapį</p>
-        <Spinner name='three-bounce' color="purple" className="spinner" />
+        <Spinner name='ball-scale-multiple' color="purple" className="spinner" />
       </div>
       
     </div>

@@ -2,61 +2,69 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 .App-link {
   color: #61dafb;
 }
 
-.color-two{
+.color-two {
   color: lightblue;
 }
 .rezervuota {
   background: rgb(89, 88, 146) !important;
-  color: white
+  color: white;
 }
 .error {
-  top:-25px;
-  position:absolute;
-  color:rgb(185, 86, 86) ;
+  top: -25px;
+  position: absolute;
+  color: rgb(185, 86, 86);
 }
-.spinner {
-  width:400px;
+.home {
+  background: rgb(66, 66, 100);
+  padding-top:80px;
+}
+
+.home__hi {
+  height: 100%;
+  font-weight: 900;
+  color: gray;
+  background:url('barber.jpg');
+  background-size: cover;
+  padding:20px;
+  border-radius:15px;
+  
+}
+.home__hi h2{
+  color:rgb(66, 66, 100);
+}
+.home__hi p{
+  font-size:5em;
+  color:rgb(60, 126, 212);
+}
+.tagline{
+  color:white !important;
+  font-size:1em !important;
+  font-weight:500;
+  margin:30px 0;
 }
 .reservation {
   border: 1px solid rgb(185, 196, 207);
 }
 .reservation__header {
-  display:flex;
+  display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  align-items:center;
-  margin:50px 0;
+  align-items: center;
+  margin: 50px 0;
 }
 .reservation__data {
   font-size: 2.5em;
-  margin:0 20px;
+  margin: 0 20px;
 }
 .reservation__item {
   border-bottom: 1px solid rgb(185, 196, 207);
 }
 .reservation__item:nth-child(odd) {
-  background: rgb(246, 246, 250)
+  background: rgb(246, 246, 250);
 }
 .reservation__item:last-child {
   border-bottom: 0;
@@ -65,19 +73,18 @@
   border-right: 1px solid rgb(185, 196, 207);
 }
 .reservation__unit h3 {
-  font-size:1em;
+  font-size: 1em;
 }
 .reservation__unit p {
-  font-size:1.5em;
-  font-weight:700;
+  font-size: 1.5em;
+  font-weight: 700;
 }
 .reservation__unit:last-child {
   border-right: 0;
 }
 
 .forma {
-  
-  background:white;
+  background: white;
   border-radius: 10px;
   padding: 50px 30px;
 }
@@ -85,61 +92,86 @@
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
-
 }
 
 .forma button {
   width: 50%;
   margin-top: 20px;
 }
-.forma h2{
-  
-  font-size:3em;
+.forma h2 {
+  font-size: 3em;
   padding-bottom: 20px;
 }
 
 .client h2 {
-  margin:2em 0;
-
+  margin: 2em 0;
 }
 .client__list {
-  padding:0 !important;
-  height:400px;
+  padding: 0 !important;
+  height: 400px;
   overflow-y: auto;
   overflow-x: hidden;
-  border:1px solid rgb(185, 196, 207)
-  
+  border: 1px solid rgb(185, 196, 207);
 }
 .client__dashboard {
-  position:relative;
-  display:flex;
+  position: relative;
+  display: flex;
   align-items: center;
   margin-bottom: 2em;
-  
 }
 .client__dashboard input {
-  padding:10px;
-  border:1px solid rgb(185, 196, 207);
-  background:rgb(226, 231, 236);
-  border-radius:5px;
-  outline:none;
-  flex:1;
+  padding: 10px;
+  border: 1px solid rgb(185, 196, 207);
+  background: rgb(226, 231, 236);
+  border-radius: 5px;
+  outline: none;
+  flex: 1;
   margin-right: 15px;
 }
 .client__date {
-  margin-left:15px;
+  margin-left: 15px;
   color: gray;
 }
 .client__item:hover {
-  cursor:pointer;
+  cursor: pointer;
 }
-.client__item.rezervuota:hover{
+.client__item.rezervuota:hover {
   cursor: auto;
 }
 .client__modal--success {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
   background: white;
-  padding:100px
+  padding: 100px;
 }
-.client__modal--success p{
-  margin-bottom:20px;
+.client__modal--success h1 {
+  color: purple;
+}
+.client__modal--success p {
+  margin-bottom: 50px;
+}
+.header {
+  padding: 20px 0;
+  box-shadow: 0px 4px 5px -1px rgb(188, 195, 197);
+}
+.header__navigation {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+.header__logo {
+  font-family: "Alfa Slab One", cursive;
+  font-size: 2em;
+  color: purple;
+}
+.header__logo span {
+  color: white;
+  padding: 0px 10px;
+  margin: 0 5px;
+  background: rgb(60, 126, 212);
+  border-radius: 50%;
+}
+.header__links a {
+  margin: 0 10px;
 }
