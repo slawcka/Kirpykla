@@ -11,7 +11,7 @@ const Klientas = props => {
       <div className="columns is-centered">
         <div className="column is-6">
           <h2 className="is-size-3 is-size-5-mobile">
-            Įveskite vardą <br />
+            Įveskite vardą 
             ir paspauskite ant laiko
           </h2>
           <div className="client__dashboard">

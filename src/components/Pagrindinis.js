@@ -22,6 +22,7 @@ const Pagrindinis = (props) => {
                     <p class="tagline">Bacon ipsum dolor amet pastrami chicken jerky short ribs tail. Burgdoggen strip steak tail, prosciutto turkey meatloaf chicken swine flank pork belly ground round. Ground round chuck strip steak salami kevin corned beef pork sirloin meatball alcatra bacon sausage boudin rump pork belly. </p>
                     </div>
             </div>
+            
         </div>
         </div>
     );
