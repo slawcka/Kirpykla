@@ -7,11 +7,11 @@ const Header = () => {
       <NavLink exact to="/">
         Home
       </NavLink>
-      <NavLink exact to="/paieska">
-        Paieska
+      <NavLink exact to="/kirpyklai">
+        Kirpyklai
       </NavLink>
-      <NavLink exact to="/klientas">
-        Klientas
+      <NavLink exact to="/klientui">
+        Klientui
       </NavLink>
     </div>
   );

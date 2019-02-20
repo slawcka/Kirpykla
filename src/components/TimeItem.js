@@ -3,7 +3,7 @@ import React from 'react';
 const TimeItem = (props) => {
     return (
        
-            <div className={"column reservation__item " + (props.item.rezervuota && "rezervuota")}>
+            <div  onClick={()=>props.klientasRezervuoti(props.item)} className={"column client__item reservation__item " + (props.item.rezervuota && "rezervuota")}>
                 <p>{props.item.valandos}</p>
             </div>
         

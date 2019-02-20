@@ -16,19 +16,58 @@ class App extends Component {
     super(props);
     this.state = {
       kalendorius: null,
-      laikinas:{
-       
-
-      }
+      laikinas: {},
+      vardas: "",
+      puslapiuKiekis: null,
+      puslapis: 0,
+      error: false,
+      redirect: false,
+      registered: false
     };
     this.atsauktiRezervacija = this.atsauktiRezervacija.bind(this);
     this.rezervuotiLaika = this.rezervuotiLaika.bind(this);
-    this.currentClient = this.currentClient.bind(this);
+    this.klientasRezervuoti = this.klientasRezervuoti.bind(this);
+    this.sekmingaRegistracija = this.sekmingaRegistracija.bind(this);
+    this.pageCounter = this.pageCounter.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
   componentWillMount() {
     this.setState({ kalendorius: data });
   }
+  componentDidMount() {
+    const length = this.state.kalendorius.length;
+    this.setState({ puslapiuKiekis: length });
+  }
 
+  onChange(e) {
+    this.setState({
+      vardas: e.target.value
+    });
+  }
+  klientasRezervuoti(item) {
+    if (this.state.vardas.length < 3 || this.state.vardas.length > 12) {
+      this.setState({ error: true });
+      console.log("i has no name");
+      return;
+    }
+    if (item.rezervuota) {
+      return;
+    }
+    this.setState({ error: false });
+    let laikinas = {};
+    laikinas.diena = this.state.puslapis;
+    laikinas.laikas = item.valandos;
+    this.rezervuotiLaika(this.state.vardas, laikinas);
+    this.setState({ registered: true });
+    setTimeout(this.sekmingaRegistracija, 4000);
+  }
+  sekmingaRegistracija() {  
+    this.setState({
+      redirect: true,
+      registered: false
+    });
+    this.setState({ redirect: false });
+  }
   rezervuotiLaika(vardas, dabartinis) {
     let kalendorius, diena;
 
@@ -39,11 +78,12 @@ class App extends Component {
       if (obj.valandos === dabartinis.laikas) {
         kalendorius[dabartinis.diena].laikas[item].rezervuota = true;
         kalendorius[dabartinis.diena].laikas[item].klientas = vardas;
-        kalendorius[dabartinis.diena].laikas[item].kirpejas = "zuzi";
+        //kalendorius[dabartinis.diena].laikas[item].kirpejas = "zuzi";
       }
     });
     this.setState({
-      kalendorius
+      kalendorius: kalendorius,
+      vardas: ""
     });
   }
   atsauktiRezervacija(data, laikas) {
@@ -63,18 +103,30 @@ class App extends Component {
       kalendorius
     });
   }
-  currentClient(){
+  pageCounter(type) {
+    let current = this.state.puslapis;
+    let puslapiuKiekis = this.state.puslapiuKiekis - 1;
+    type === "minus" ? current-- : type === "plus" && current++;
 
+    if (current < 0) {
+      current = 0;
+    } else if (current > puslapiuKiekis) {
+      current = puslapiuKiekis;
+    }
+
+    this.setState({
+      puslapis: current
+    });
   }
+
   render() {
-    
     return (
       <div className="App">
         <Header />
         <Route exact path="/" component={Pagrindinis} />
         <Route
           exact
-          path="/paieska"
+          path="/kirpyklai"
           render={props => (
             <Paieska
               {...props}
@@ -84,15 +136,26 @@ class App extends Component {
             />
           )}
         />
-        <Route exact path="/klientas"
-        render={props => (
+        <Route
+          exact
+          path="/klientui"
+          render={props => (
             <Klientas
               {...props}
               calendar={this.state.kalendorius}
-              rezervuotiLaika={this.rezervuotiLaika}
+              klientasRezervuoti={this.klientasRezervuoti}
               currentClient={this.currentClient}
+              pageCounter={this.pageCounter}
+              puslapis={this.state.puslapis}
+              puslapiukiekis={this.state.puslapiuKiekis}
+              onChange={this.onChange}
+              error={this.state.error}
+              vardas={this.state.vardas}
+              redirect={this.state.redirect}
+              registered={this.state.registered}
             />
-          )} />
+          )}
+        />
       </div>
     );
   }

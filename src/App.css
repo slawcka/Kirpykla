@@ -30,6 +30,14 @@
   background: rgb(89, 88, 146) !important;
   color: white
 }
+.error {
+  top:-25px;
+  position:absolute;
+  color:rgb(185, 86, 86) ;
+}
+.spinner {
+  width:400px;
+}
 .reservation {
   border: 1px solid rgb(185, 196, 207);
 }
@@ -89,8 +97,10 @@
   font-size:3em;
   padding-bottom: 20px;
 }
-.client input {
- margin-bottom:20px
+
+.client h2 {
+  margin:2em 0;
+
 }
 .client__list {
   padding:0 !important;
@@ -99,4 +109,37 @@
   overflow-x: hidden;
   border:1px solid rgb(185, 196, 207)
   
+}
+.client__dashboard {
+  position:relative;
+  display:flex;
+  align-items: center;
+  margin-bottom: 2em;
+  
+}
+.client__dashboard input {
+  padding:10px;
+  border:1px solid rgb(185, 196, 207);
+  background:rgb(226, 231, 236);
+  border-radius:5px;
+  outline:none;
+  flex:1;
+  margin-right: 15px;
+}
+.client__date {
+  margin-left:15px;
+  color: gray;
+}
+.client__item:hover {
+  cursor:pointer;
+}
+.client__item.rezervuota:hover{
+  cursor: auto;
+}
+.client__modal--success {
+  background: white;
+  padding:100px
+}
+.client__modal--success p{
+  margin-bottom:20px;
 }
