@@ -89,10 +89,14 @@
   font-size:3em;
   padding-bottom: 20px;
 }
-.klientas {
-  height:500px;
-  width:500px;
-  overflow: auto;
+.client input {
+ margin-bottom:20px
+}
+.client__list {
+  padding:0 !important;
+  height:400px;
+  overflow-y: auto;
   overflow-x: hidden;
+  border:1px solid rgb(185, 196, 207)
   
 }

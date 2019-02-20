@@ -16,7 +16,10 @@ class App extends Component {
     super(props);
     this.state = {
       kalendorius: null,
-      laikinas:{}
+      laikinas:{
+       
+
+      }
     };
     this.atsauktiRezervacija = this.atsauktiRezervacija.bind(this);
     this.rezervuotiLaika = this.rezervuotiLaika.bind(this);

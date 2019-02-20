@@ -2,11 +2,11 @@ import React from 'react';
 
 const TimeItem = (props) => {
     return (
-        <div className="columns reservation__item">
-            <div className={"column reservation__unit " + (props.item.rezervuota && "rezervuota")}>
+       
+            <div className={"column reservation__item " + (props.item.rezervuota && "rezervuota")}>
                 <p>{props.item.valandos}</p>
             </div>
-        </div>
+        
     );
 };
 
