@@ -9,12 +9,12 @@ const Laikas = (props) => {
   return (
     <div className={classList.join(" ")}>
     
-      <div className="columns reservation__row ">
+      <div className="columns is-mobile reservation__row ">
         <div className="column reservation__unit is-vcentered">
           <h3>{props.data.valandos}</h3>
         </div>
         <div className="column reservation__unit is-vcentered">
-          <p>{props.data.klientas}</p>
+          <p className="is-size-6-mobile">{props.data.klientas}</p>
         </div>
         <div className="column reservation__unit">
         {props.data.rezervuota ? <i class="fas fa-cut"></i> : <i class="fas fa-check-circle color-two"></i> }
@@ -23,7 +23,7 @@ const Laikas = (props) => {
         <div className="column reservation__unit">
           {props.data.rezervuota ? 
             <button onClick={()=>props.atsauktiRezervacija(diena,laikas)}
-              className="button is-rounded">atšaukti</button>
+              className="button is-rounded"> atšaukti.... </button>
            : 
            <div>
             <button onClick={()=>props.formEdit(diena,laikas)} className="button is-rounded">rezervuoti</button>

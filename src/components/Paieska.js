@@ -18,7 +18,7 @@ class Paieska extends Component {
   componentWillMount() {
     this.setState({ puslapiuKiekis: this.props.kalendar.length });
   }
-  
+
   onChange(e) {
     this.setState({
       vardas: e.target.value
@@ -65,45 +65,50 @@ class Paieska extends Component {
     const data = this.props.kalendar;
     const puslapiuKiekis = this.state.puslapiuKiekis - 1;
     return (
-      <div className="kirpejos container">
-        <div className="reservation__header">
-          <button
-            className="button is-link"
-            onClick={() => this.handleClick("minus")}
-            disabled={puslapis === 0}>
-            <i class="fas fa-angle-double-left" />
-          </button>
-          <p className="reservation__data">{data[puslapis].date}</p>
-          <button
-            className="button is-link"
-            onClick={() => this.handleClick("plus")}
-            disabled={puslapis === puslapiuKiekis}>
-            <i class="fas fa-angle-double-right" />
-          </button>
-        </div>
+      <div>
+        <div className="kirpejos container">
+          <div className="reservation__header">
+            <button
+              className="button is-link"
+              onClick={() => this.handleClick("minus")}
+              disabled={puslapis === 0}>
+              <i class="fas fa-angle-double-left" />
+            </button>
+            <p className="reservation__data">{data[puslapis].date}</p>
+            <button
+              className="button is-link"
+              onClick={() => this.handleClick("plus")}
+              disabled={puslapis === puslapiuKiekis}>
+              <i class="fas fa-angle-double-right" />
+            </button>
+          </div>
 
-        <div className="container reservation">
-          {data[puslapis].laikas.map(item => (
-            <Laikas
-              data={item}
-              diena={this.state.puslapis}
-              atsauktiRezervacija={this.props.atsauktiRezervacija}
-              formEdit={this.formEdit}
-            />
-          ))}
-          {this.state.open && (
-            <Form
-              modalstate={this.state.open}
-              vardas={this.state.vardas}
-              dabartinis={this.state.dabartinis}
-              rezervuotiLaika={this.props.rezervuotiLaika}
-              onchange={this.onChange}
-              onsubmit={this.onSubmit}
-              onOpenModal={this.onOpenModal}
-              onCloseModal={this.onCloseModal}
-            />
-          )}
+          <div className="container reservation">
+            {data[puslapis].laikas.map(item => (
+              <Laikas
+                data={item}
+                diena={this.state.puslapis}
+                atsauktiRezervacija={this.props.atsauktiRezervacija}
+                formEdit={this.formEdit}
+              />
+            ))}
+            {this.state.open && (
+              <Form
+                modalstate={this.state.open}
+                vardas={this.state.vardas}
+                dabartinis={this.state.dabartinis}
+                rezervuotiLaika={this.props.rezervuotiLaika}
+                onchange={this.onChange}
+                onsubmit={this.onSubmit}
+                onOpenModal={this.onOpenModal}
+                onCloseModal={this.onCloseModal}
+              />
+            )}
+          </div>
+          
         </div>
+        
+       
       </div>
     );
   }
