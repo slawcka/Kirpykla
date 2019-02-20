@@ -3,9 +3,9 @@ import React from "react";
 
 const Form = props => {
   return (
-    <div class={"modal " + (props.modalstate && "is-active")}>
-      <div class="modal-background" />
-      <div class="modal-content">
+    <div className={"modal " + (props.modalstate && "is-active")}>
+      <div className="modal-background" />
+      <div className="modal-content">
         
         <form className=" forma" action="" onSubmit={props.onsubmit}>
         <h2>Laikas: {props.dabartinis.laikas}</h2>

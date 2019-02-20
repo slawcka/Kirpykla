@@ -18,6 +18,7 @@ class Paieska extends Component {
   componentWillMount() {
     this.setState({ puslapiuKiekis: this.props.kalendar.length });
   }
+  
   onChange(e) {
     this.setState({
       vardas: e.target.value
@@ -64,7 +65,7 @@ class Paieska extends Component {
     const data = this.props.kalendar;
     const puslapiuKiekis = this.state.puslapiuKiekis - 1;
     return (
-      <div className="">
+      <div className="kirpejos container">
         <div className="reservation__header">
           <button
             className="button is-link"
