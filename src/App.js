@@ -1,33 +1,33 @@
 //v2 atsaukti mygtuka
 import React, { Component } from "react";
 import Paieska from "./components/Paieska";
+import Header from "./components/Header";
+import Pagrindinis from "./components/Pagrindinis";
+import Klientas from "./components/Klientas";
+
 import data from "./data/kalendorius.json";
 import "./App.css";
+import { Route } from "react-router-dom";
+
 //import Diena from "./components/Diena";
-
-
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       kalendorius: null,
-      loading: true
+      laikinas:{}
     };
     this.atsauktiRezervacija = this.atsauktiRezervacija.bind(this);
     this.rezervuotiLaika = this.rezervuotiLaika.bind(this);
+    this.currentClient = this.currentClient.bind(this);
   }
   componentWillMount() {
     this.setState({ kalendorius: data });
   }
 
-  componentDidMount() {
-    this.setState({ loading: false });
-    console.log("loaded");
-  }
-  rezervuotiLaika(vardas,dabartinis){
-		console.log('TCL: App -> rezervuotiLaika -> vardas', vardas)
-		let kalendorius, diena;
+  rezervuotiLaika(vardas, dabartinis) {
+    let kalendorius, diena;
 
     kalendorius = [...this.state.kalendorius];
     diena = kalendorius[dabartinis.diena];
@@ -42,7 +42,6 @@ class App extends Component {
     this.setState({
       kalendorius
     });
-    
   }
   atsauktiRezervacija(data, laikas) {
     let kalendorius, diena;
@@ -61,17 +60,36 @@ class App extends Component {
       kalendorius
     });
   }
+  currentClient(){
+
+  }
   render() {
-    if (this.state.loading) {
-      return <p>loading</p>;
-    }
+    
     return (
-      <div className="App ">
-        <Paieska
-          kalendar={this.state.kalendorius}
-          atsauktiRezervacija={this.atsauktiRezervacija}
-          rezervuotiLaika={this.rezervuotiLaika}
+      <div className="App">
+        <Header />
+        <Route exact path="/" component={Pagrindinis} />
+        <Route
+          exact
+          path="/paieska"
+          render={props => (
+            <Paieska
+              {...props}
+              kalendar={this.state.kalendorius}
+              atsauktiRezervacija={this.atsauktiRezervacija}
+              rezervuotiLaika={this.rezervuotiLaika}
+            />
+          )}
         />
+        <Route exact path="/klientas"
+        render={props => (
+            <Klientas
+              {...props}
+              calendar={this.state.kalendorius}
+              rezervuotiLaika={this.rezervuotiLaika}
+              currentClient={this.currentClient}
+            />
+          )} />
       </div>
     );
   }

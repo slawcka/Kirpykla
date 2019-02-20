@@ -18,6 +18,7 @@ class Paieska extends Component {
   componentWillMount() {
     this.setState({ puslapiuKiekis: this.props.kalendar.length });
   }
+  
   onChange(e) {
     this.setState({
       vardas: e.target.value

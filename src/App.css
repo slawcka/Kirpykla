@@ -89,3 +89,10 @@
   font-size:3em;
   padding-bottom: 20px;
 }
+.klientas {
+  height:500px;
+  width:500px;
+  overflow: auto;
+  overflow-x: hidden;
+  
+}
